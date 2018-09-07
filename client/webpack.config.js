@@ -1,5 +1,7 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
 	module: {
@@ -14,7 +16,7 @@ module.exports = {
 				use: [ 'html-loader' ]
 			},
 			{
-				test: /\.scss$/,
+				test: /\.(scss|css)$/,
 				use: ExtractTextPlugin.extract(
 					{
 						fallback: 'style-loader',
@@ -30,6 +32,11 @@ module.exports = {
 		new HtmlWebPackPlugin({
 			template: './src/index.html',
 			filename: './index.html'
+		}),
+		new CleanWebpackPlugin([ 'dist' ]),
+		new ProgressBarPlugin({
+			format: 'Build [:bar] :percent (:elapsed seconds)',
+			clear: false,
 		})
 	]
 };

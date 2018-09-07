@@ -11,6 +11,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.2",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "eslint": "^5.5.0",
     "eslint-loader": "^2.1.0",
@@ -19,8 +20,8 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.9.3",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "progress-bar-webpack-plugin": "^1.11.0",
+    "redux-logger": "^3.0.6",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.17.2",
@@ -31,5 +32,14 @@
     "start": "webpack-dev-server --mode development",
     "build:dev": "webpack --mode development",
     "build:prod": "webpack --mode production"
+  },
+  "dependencies": {
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "bootstrap": "^4.1.1",
+    "react-redux": "^5.0.7",
+    "reactstrap": "^6.4.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   }
 }
