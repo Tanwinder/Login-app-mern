@@ -3,4 +3,7 @@
         display: flex;
         justify-content: space-between;
     }
+    & .todoComplete {
+        text-decoration: line-through;
+    }
 }
