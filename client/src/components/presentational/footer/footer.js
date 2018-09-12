@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => {
@@ -7,9 +8,12 @@ const Footer = () => {
 			<div>
 				<span>Copyright </span>
 				<FontAwesomeIcon icon="copyright" />
-				<span> 2018 MERNNODEAPP Inc. </span>
+				<span> 2018 APP Inc. </span>
 			</div>
-			<div>Powered By Tanwinder</div>
+			<div>
+				<span>Powered By</span>
+				<Link to="/about"> Tanwinder</Link>
+			</div>
 		</div>
 	);
 };

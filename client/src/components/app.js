@@ -15,7 +15,7 @@ library.add(faCopyright);
 
 const App = () => (
 	<Provider store={ store } >
-		<div className="app">
+		<div className="mern-app">
 			<NavBar />
 			<Routes />
 			<Footer />

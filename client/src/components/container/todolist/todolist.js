@@ -16,9 +16,7 @@ class TodoList extends Component {
 	render() {
 		const { items } = this.props;
 		return (
-			<ul>
-				<List items={ items }/>
-			</ul>
+			<List items={ items }/>
 		);
 	}
 }
