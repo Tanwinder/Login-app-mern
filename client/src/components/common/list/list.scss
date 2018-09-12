@@ -1,0 +1,6 @@
+.mern-app {
+    & .list-items {
+        display: flex;
+        justify-content: space-between;
+    }
+}

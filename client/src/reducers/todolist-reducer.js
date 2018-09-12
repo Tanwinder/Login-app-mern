@@ -1,14 +1,23 @@
-import { ADD_ITEM } from '../actions/types';
+import * as AT from '../actions/types';
 
 const initialState = {
 	items: []
 };
 export default (state= initialState, action) => {
 	switch(action.type) {
-	case ADD_ITEM:
+	case AT.GET_TODO_ITEMS:
 		return {
 			...state,
-			items: [ {name: 'this is a', id: 1}, {name: 'jahsgdjkashd', id: 2} ]
+		};
+	case AT.ADD_ITEM:
+		return {
+			...state,
+			items: [ ...state.items, action.item ]
+		};
+	case AT.DELETE_ITEM:
+		return {
+			...state,
+			items: state.items.filter( ac => ac.id !== action.item)
 		};
 	default:
 		return state;

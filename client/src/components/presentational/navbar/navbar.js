@@ -31,7 +31,7 @@ class NavBar extends React.Component {
 		return (
 			<div>
 				<Navbar color="light" light expand="md">
-					<NavbarBrand href="/">MERNAPP</NavbarBrand>
+					<Link className="brand-name" to="/">MERNAPP</Link>
 					<NavbarToggler onClick={ this.toggle } />
 					<Collapse isOpen={ this.state.isOpen } navbar>
 						<Nav className="mern-nav ml-auto" navbar>
