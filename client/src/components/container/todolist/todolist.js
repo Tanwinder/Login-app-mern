@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ADD_ITEM } from '../../../actions/types';
+import List from '../../common/list/list';
 
 class TodoList extends Component {
 	constructor(props) {
@@ -15,15 +16,9 @@ class TodoList extends Component {
 	render() {
 		const { items } = this.props;
 		return (
-			<div>
-				{
-					!!items ? items.map( ac => (
-						<li key={ ac.name }>{`Hello ${ ac.name }`}</li>
-					))
-						:
-						<div>loading...</div>
-				}
-			</div>
+			<ul>
+				<List items={ items }/>
+			</ul>
 		);
 	}
 }

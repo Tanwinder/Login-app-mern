@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import '../styles/app.scss';
 import store from '../store/store';
-
-import TodoList from '../components/container/todolist/todolist';
+import Routes from '../pages/routes';
 
 const App = () => (
 	<Provider store={ store } >
-		<div>
-			<TodoList />
-		</div>
+		<Nav />
+		<Routes />
+		<Footer />
 	</Provider>
 );
 

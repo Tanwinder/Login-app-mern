@@ -17,23 +17,33 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    const todolist = new TodoList({
-        name: req.body.name
-    });
-    todolist
-    .save()
-    .then(data => {
-        console.log(data);
-        res.status(200).json({
-            message: " Post items successfully",
-            data: data
+    TodoList
+    .findOne({name: req.body.name})
+    .then( result => {
+       if( result !== null ) {
+           res.status(201).json({
+               message: 'Item is already present in database'
+           })
+       } else {
+        const todolist = new TodoList({
+            name: req.body.name
+        });
+        todolist
+        .save()
+        .then(data => {
+            console.log(data);
+            res.status(200).json({
+                message: " Post items successfully",
+                data: data
+            })
         })
+        .catch( err => console.log(err))
+       }
     })
-    .catch( err => console.log(err))
 });
 
 router.delete('/:id', (req, res, next) => {
-    TodoList.remove({_id: id})
+    TodoList.remove({_id: req.params.id})
     .exec()
     .then(data => {
         console.log(data);
