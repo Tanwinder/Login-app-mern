@@ -30,14 +30,17 @@
   },
   "scripts": {
     "start": "webpack-dev-server --mode development",
+    "start:dev": "node server.js",
     "build:dev": "webpack --mode development",
     "build:prod": "webpack --mode production"
   },
   "dependencies": {
+    "bootstrap": "^4.1.1",
+    "express": "^4.16.3",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
-    "bootstrap": "^4.1.1",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "reactstrap": "^6.4.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0"

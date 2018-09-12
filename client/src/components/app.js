@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import '../styles/app.scss';
-import store from '../store';
-
-import ShoppingApp from '../components/container/shopping/shopping-app';
+import store from '../store/store';
+import Routes from '../pages/routes';
 
 const App = () => (
 	<Provider store={ store } >
-		<div>
-			<ShoppingApp />
-		</div>
+		<Nav />
+		<Routes />
+		<Footer />
 	</Provider>
 );
 

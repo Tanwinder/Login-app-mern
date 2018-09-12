@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ADD_ITEM } from '../../../actions/types';
+import List from '../../common/list/list';
 
-class ShoppingApp extends Component {
+class TodoList extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -15,25 +16,19 @@ class ShoppingApp extends Component {
 	render() {
 		const { items } = this.props;
 		return (
-			<div>
-				{
-					!!items ? items.map( ac => (
-						<li key={ ac.name }>{`Hello ${ ac.name }`}</li>
-					))
-						:
-						<div>loading...</div>
-				}
-			</div>
+			<ul>
+				<List items={ items }/>
+			</ul>
 		);
 	}
 }
 
-ShoppingApp.propTypes = {
+TodoList.propTypes = {
 
 };
 const mapStateToProps = state => {
 	return {
-		items: state.shopping.items
+		items: state.todolist.items
 	};
 };
-export default connect(mapStateToProps)(ShoppingApp);
+export default connect(mapStateToProps)(TodoList);

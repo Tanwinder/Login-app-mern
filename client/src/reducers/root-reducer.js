@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import shopping from './shopping-reducer';
+import todolist from './todolist-reducer';
 
 export default combineReducers({
-	shopping,
+	todolist,
 });

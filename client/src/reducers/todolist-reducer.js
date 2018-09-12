@@ -8,7 +8,7 @@ export default (state= initialState, action) => {
 	case ADD_ITEM:
 		return {
 			...state,
-			items: [ {name: 'this is a'}, {name: 'bs'} ]
+			items: [ {name: 'this is a', id: 1}, {name: 'jahsgdjkashd', id: 2} ]
 		};
 	default:
 		return state;
