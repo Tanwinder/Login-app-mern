@@ -1,0 +1,9 @@
+.mern-app {
+    & .todolist {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    & .todolist__add-items {
+        display: flex;
+    }
+}

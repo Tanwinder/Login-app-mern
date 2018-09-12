@@ -9,9 +9,9 @@ import NavBar from './presentational/navbar/navbar';
 import Footer from './presentational/footer/footer';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCopyright } from '@fortawesome/free-solid-svg-icons';
+import { faCopyright, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faCopyright);
+library.add(faCopyright, faTimes);
 
 const App = () => (
 	<Provider store={ store } >

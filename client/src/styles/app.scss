@@ -1,6 +1,9 @@
 @import '../components/presentational/footer/footer.scss';
 @import '../components/presentational/navbar/navbar.scss';
 
-.app {
+.mern-app {
     font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
