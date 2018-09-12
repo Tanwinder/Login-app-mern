@@ -34,30 +34,19 @@ class NavBar extends React.Component {
 					<NavbarBrand href="/">MERNAPP</NavbarBrand>
 					<NavbarToggler onClick={ this.toggle } />
 					<Collapse isOpen={ this.state.isOpen } navbar>
-						<Nav className="ml-auto" navbar>
+						<Nav className="mern-nav ml-auto" navbar>
 							<NavItem>
-								<Link to="/todolist">Components</Link>
+								<Link to="/todolist">Todo</Link>
 							</NavItem>
 							<NavItem>
-								<Link to="/todoli">hello</Link>
+								<Link to="/products">Products</Link>
 							</NavItem>
-							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav caret>
-                  Options
-								</DropdownToggle>
-								<DropdownMenu right>
-									<DropdownItem>
-                    Option 1
-									</DropdownItem>
-									<DropdownItem>
-                    Option 2
-									</DropdownItem>
-									<DropdownItem divider />
-									<DropdownItem>
-                    Reset
-									</DropdownItem>
-								</DropdownMenu>
-							</UncontrolledDropdown>
+							<NavItem>
+								<Link to="/orders">Orders</Link>
+							</NavItem>
+							<NavItem>
+								<Link to="/About">About</Link>
+							</NavItem>
 						</Nav>
 					</Collapse>
 				</Navbar>

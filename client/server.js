@@ -6,9 +6,9 @@ app.use(express.static('./'));
 app.use(express.static('dist'));
 
 app.get('/*', function(req, res) {
-    res.sendFile(`${__dirname}/dist/index.html`);
+	res.sendFile(`${ __dirname }/dist/index.html`);
 }); 
 
 const server = http.createServer(app);
 const port = process.env.PORT || 4001;
-server.listen(port, () => console.log(`server running at port ${port}`))
+server.listen(port, () => console.log(`server running at port ${ port }`));
