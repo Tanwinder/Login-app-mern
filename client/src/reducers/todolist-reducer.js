@@ -19,6 +19,11 @@ export default (state= initialState, action) => {
 			...state,
 			items: state.items.filter( ac => ac.id !== action.item)
 		};
+	case AT.ON_CHECKBOX_CHANGE:
+		return {
+			...state,
+			items: action.items,
+		};
 	default:
 		return state;
 	}

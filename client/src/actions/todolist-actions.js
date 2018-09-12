@@ -22,3 +22,12 @@ export const onDeleteItem = ( item ) => (
 		});
 	}
 );
+
+export const onChangeCheckbox = (items) => (
+	dispatch => {
+		dispatch({
+			type: AT.ON_CHECKBOX_CHANGE,
+			items,
+		});
+	}
+);
