@@ -13,7 +13,7 @@ class List extends PureComponent {
 				{
 					items.map( ac => {
 						const listData = cn({
-							todoComplete: ac.isChecked,
+							todoComplete: ac.isCompleted,
 						});
 						return (
 							<ListGroupItem className="list-items" key={ ac.id }>

@@ -37,7 +37,7 @@ class TodoList extends Component {
 		const newItem = {
 			name: this.state.value,
 			id: this.props.items.length + 1,
-			isChecked: false
+			isCompleted: false
 		};
 		this.props.dispatch(addTodoItem(newItem));
 	}
@@ -48,7 +48,7 @@ class TodoList extends Component {
 		const { checked, id } = e.target;
 		const items = this.props.items.map( ac => {
 			if( ac.id == id) {
-				ac.isChecked = checked;
+				ac.isCompleted = checked;
 			}
 			return ac;
 		});
