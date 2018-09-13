@@ -34,12 +34,16 @@ class TodoList extends Component {
 	}
 	onSubmit = (event) => {
 		event.preventDefault();
-		const newItem = {
-			name: this.state.value,
-			id: this.props.items.length + 1,
-			isCompleted: false
-		};
-		this.props.dispatch(addTodoItem(newItem));
+		if(!!this.state.value) {
+			const newItem = {
+				name: this.state.value,
+				id: this.props.items.length + 1,
+				isCompleted: false
+			};
+			this.props.dispatch(addTodoItem(newItem));
+		} else {
+			// this.props.dispatch(itemIsEmpty());
+		}
 	}
 	onDelete = (item) => {
 		this.props.dispatch(onDeleteItem(item.id));
@@ -56,7 +60,7 @@ class TodoList extends Component {
 	}
 
 	render() {
-		const { items } = this.props;
+		const { items, filter } = this.props;
 		return (
 			<div className="todolist">
 				<Form className="todolist__add-items" onSubmit={this.onSubmit} >
@@ -74,7 +78,7 @@ class TodoList extends Component {
 					onDelete={this.onDelete}
 					onChangeCheckbox={ this.onChangeCheckbox }
 				/>
-				<Filters onFilterClick={this.onFilterClick}/>
+				<Filters onFilterClick={this.onFilterClick} activeFilter={filter}/>
 			</div>
 		);
 	}
@@ -85,7 +89,8 @@ TodoList.propTypes = {
 };
 const mapStateToProps = state => {
 	return {
-		items: selector.getFilteredTodoItems(state)
+		items: selector.getFilteredTodoItems(state),
+		filter: selector.getTodoFilter(state)
 	};
 };
 export default connect(mapStateToProps)(TodoList);
