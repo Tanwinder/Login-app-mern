@@ -1,0 +1,14 @@
+.filters {
+    display: flex;
+    height: 2rem;
+    margin: 10px 0px;
+    align-items: center;
+    & div {
+        font-size: 1.3rem;
+        color: gray;
+        font-weight: 400;
+    }
+    & .filters-button {
+        margin-left: 10px;
+    }
+}

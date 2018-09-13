@@ -1,0 +1,1 @@
+export const getTodoItems = state => state.todolist.items;
