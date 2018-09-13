@@ -8,6 +8,7 @@ import cn from 'classnames';
 class List extends PureComponent {
 	render() {
 		const {items, maxWidth, onDelete, onChangeCheckbox} = this.props;
+		
 		return (
 			<ListGroup style={ { maxWidth: `${ maxWidth }%`, margin: '0 auto' } }>
 				{
@@ -15,13 +16,18 @@ class List extends PureComponent {
 						const listData = cn({
 							todoComplete: ac.isCompleted,
 						});
+						const listItemClasses = cn({
+							listItems: true,
+							completedItem: ac.isCompleted
+						}); 
 						return (
-							<ListGroupItem className="list-items" key={ ac.id }>
+							<ListGroupItem className={listItemClasses} key={ ac.id }>
 								<input
 									type="checkbox"
 									className="checkbox-input"
 									name={ac.name}
 									id={ac.id}
+									checked={ac.isCompleted}
 									onChange={e => onChangeCheckbox(e)}
 								/>
 								<div className={listData} >{ac.name}</div>

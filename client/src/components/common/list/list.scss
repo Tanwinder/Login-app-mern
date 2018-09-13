@@ -1,13 +1,90 @@
+// @mixin plusMinus($width, $lineWidth, $color, $rotate, $rotate-before) {
+//     box-sizing: border-box;
+//     transition: transform 0.3s;
+//     width: $width;
+//     height: $width;
+//     transform: rotate($rotate);
+//     position: relative;
+//     cursor: pointer;
+//     &::before {
+//       content: '';
+//       display: block;
+//       width: $width;
+//       height:0px;
+//       border-bottom: solid $lineWidth $color;
+//       position: absolute;
+//       bottom:$width /2 - $lineWidth/2;
+//       transform: rotate($rotate-before);
+//       transition: width 0.3s;
+//     }
+//     &::after {
+//       content: '';
+//       display: block;
+//       width: $width;
+//       height:0px;
+//       border-bottom: solid $lineWidth $color;
+//       position: absolute;
+//       bottom:$width /2 - $lineWidth/2;
+//     }
+// }   // plus/ minus sign with animation
+
+// @mixin check($width, $lineWidth, $bgcolor, $color, $rotate, $left, $bottom, $beforewidth, $afterleft, $afterbottom, $afterwidth, $bfthickness, $afthickness, $pointer) {
+//     box-sizing: border-box;
+//     transition: transform 0.5s;
+//     width: 34px;
+//     height: 31px;
+//     transform: rotateX($rotate);
+//     position: relative;
+//     cursor: $pointer;
+//     background: $bgcolor;
+//     border-radius: 3px;
+//     // animation: $an;
+//     &::before {
+//         content: '';
+//         display: block;
+//         width: $beforewidth;
+//         height: 0px;
+//         border-bottom: solid $bfthickness $color;
+//         position: absolute;
+//         bottom: $bottom;
+//         left: $left;
+//         transform: rotate(50deg);
+//         transition: width 0.3s;
+//     }
+//     &::after {
+//         content: '';
+//         display: block;
+//         width: $afterwidth;
+//         height: 0px;
+//         border-bottom: solid $afthickness $color;
+//         position: absolute;
+//         bottom: $afterbottom;
+//         left: $afterleft;
+//         transform: rotate(130deg);
+//         transition: width 0.3s;
+//     }
+// }    // Tick/cross sign with animation
+
 .mern-app {
-    & .list-items {
+    & .list-group {
+        max-height: 51vh;
+        overflow: auto;
+    }
+    & .listItems {
         display: flex;
         justify-content: space-between;
         padding: 0 1rem;
         align-items: center;
         height: 2.8rem;
+        min-height: 2.8rem;
         & > div {
             flex-grow: 1;
             margin-left: 20px;
+        }
+        &.completedItem {
+            background-color: white;
+            color: #a6a6a6;
+            box-shadow: inset 0 0 11px #ddd;
         }
     }
     & .todoComplete {
