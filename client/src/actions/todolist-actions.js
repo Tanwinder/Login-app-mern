@@ -1,8 +1,20 @@
 import * as AT from './types';
+import axios from 'axios';
 
 export const getTodoItems = () => {
-	return {
-		type: AT.GET_TODO_ITEMS,
+	return dispatch => {
+		// axios.get('http://localhost:4000/todolist')
+		// 	.then( data => {
+		// 		console.log('data ',data);
+		// 		dispatch({
+		// 			type: AT.GET_TODO_ITEMS,
+		// 			items: data.data
+		// 		});
+		// 	})
+		// 	.catch(err => console.log('err ',err));
+		dispatch({
+			type: AT.GET_TODO_ITEMS,
+		});
 	};
 };
 export const addTodoItem = (item) => (

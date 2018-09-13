@@ -9,6 +9,8 @@ import {
 	onChangeCheckbox } from '../../../actions/todolist-actions';
 import List from '../../common/list/list';
 import './todolist.scss';
+import * as selector from '../../../selectors/todolist-selector';
+import Filters from '../../common/filters/filters';
 
 class TodoList extends Component {
 	constructor(props) {
@@ -68,6 +70,7 @@ class TodoList extends Component {
 					onDelete={this.onDelete}
 					onChangeCheckbox={ this.onChangeCheckbox }
 				/>
+				<Filters />
 			</div>
 		);
 	}
@@ -78,7 +81,7 @@ TodoList.propTypes = {
 };
 const mapStateToProps = state => {
 	return {
-		items: state.todolist.items
+		items: selector.getTodoItems(state)
 	};
 };
 export default connect(mapStateToProps)(TodoList);

@@ -2,8 +2,23 @@
     & .list-items {
         display: flex;
         justify-content: space-between;
+        padding: 0 1rem;
+        align-items: center;
+        height: 2.8rem;
+        & > div {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
     }
     & .todoComplete {
         text-decoration: line-through;
+    }
+    & .delete-icon {
+        cursor: pointer;
+        color: red;
+        font-size: 1.1rem;
+    }
+    & input {
+        cursor: pointer;
     }
 }

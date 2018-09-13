@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './list.scss';
-import { Input, ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cn from 'classnames';
 
@@ -11,19 +11,19 @@ const List = ({items, maxWidth, onDelete, onChangeCheckbox}) => {
 			{
 				items.map( ac => {
 					const listData = cn({
-						todoComplete: ac.isChecked 
+						todoComplete: ac.isChecked,
 					});
 					return (
 						<ListGroupItem className="list-items" key={ ac.id }>
-							<Input
+							<input
 								type="checkbox"
 								className="checkbox-input"
 								name={ac.name}
 								id={ac.id}
 								onChange={e => onChangeCheckbox(e)}
 							/>
-							<span className={listData} >{ac.name}</span>
-							<FontAwesomeIcon style={{ color: 'red'}} onClick={()  => onDelete(ac)} icon="times"/>
+							<div className={listData} >{ac.name}</div>
+							<FontAwesomeIcon className="delete-icon" onClick={()  => onDelete(ac)} icon="times"/>
 						</ListGroupItem>
 					);
 				})

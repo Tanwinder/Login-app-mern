@@ -8,10 +8,7 @@ router.get('/', (req, res, next) => {
     .exec()
     .then(data => {
         console.log(data);
-        res.status(200).json({
-            message: " Get items successfully",
-            data: data
-        })
+        res.status(200).json(data)
     })
     .catch( err => console.log(err))
 });
