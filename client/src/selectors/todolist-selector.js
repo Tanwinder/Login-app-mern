@@ -9,9 +9,9 @@ export const getFilteredTodoItems = createSelector(
 		case 'all':
 			return todo;
 		case 'completed':
-			return todo.filter( ac => ac.isChecked);
+			return todo.filter( ac => ac.isCompleted);
 		case 'pending':
-			return todo.filter( ac => !ac.isChecked);
+			return todo.filter( ac => !ac.isCompleted);
 		default:
 			return todo;
 		}

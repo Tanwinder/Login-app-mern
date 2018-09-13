@@ -4,7 +4,8 @@ const TodoList = require('../models/todolistModel');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    TodoList.find()
+    TodoList
+    .find()
     .exec()
     .then(data => {
         console.log(data);
@@ -23,7 +24,8 @@ router.post('/', (req, res, next) => {
            })
        } else {
         const todolist = new TodoList({
-            name: req.body.name
+            name: req.body.name,
+            isCompleted: req.body.isCompleted
         });
         todolist
         .save()
@@ -40,7 +42,8 @@ router.post('/', (req, res, next) => {
 });
 
 router.delete('/:id', (req, res, next) => {
-    TodoList.remove({_id: req.params.id})
+    TodoList
+    .remove({_id: req.params.id})
     .exec()
     .then(data => {
         console.log(data);
