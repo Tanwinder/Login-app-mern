@@ -6,7 +6,8 @@ import {
 	addTodoItem, 
 	getTodoItems,
 	onDeleteItem,
-	onChangeCheckbox } from '../../../actions/todolist-actions';
+	onChangeCheckbox,
+	todoFilterSelected } from '../../../actions/todolist-actions';
 import List from '../../common/list/list';
 import './todolist.scss';
 import * as selector from '../../../selectors/todolist-selector';
@@ -27,6 +28,9 @@ class TodoList extends Component {
 		this.setState({
 			value: e.target.value
 		});
+	}
+	onFilterClick = (e) => {
+		this.props.dispatch(todoFilterSelected(e.target.value));
 	}
 	onSubmit = (event) => {
 		event.preventDefault();
@@ -70,7 +74,7 @@ class TodoList extends Component {
 					onDelete={this.onDelete}
 					onChangeCheckbox={ this.onChangeCheckbox }
 				/>
-				<Filters />
+				<Filters onFilterClick={this.onFilterClick}/>
 			</div>
 		);
 	}
@@ -81,7 +85,7 @@ TodoList.propTypes = {
 };
 const mapStateToProps = state => {
 	return {
-		items: selector.getTodoItems(state)
+		items: selector.getFilteredTodoItems(state)
 	};
 };
 export default connect(mapStateToProps)(TodoList);

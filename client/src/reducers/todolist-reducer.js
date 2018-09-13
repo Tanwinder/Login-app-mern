@@ -1,7 +1,8 @@
 import * as AT from '../actions/types';
 
 const initialState = {
-	items: []
+	items: [],
+	filter: 'all'
 };
 export default (state= initialState, action) => {
 	switch(action.type) {
@@ -23,6 +24,11 @@ export default (state= initialState, action) => {
 		return {
 			...state,
 			items: action.items,
+		};
+	case AT.TODO_FILTER:
+		return {
+			...state,
+			filter: action.filter
 		};
 	default:
 		return state;

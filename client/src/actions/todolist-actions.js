@@ -43,3 +43,10 @@ export const onChangeCheckbox = (items) => (
 		});
 	}
 );
+
+export const todoFilterSelected = (filter) => {
+	return {
+		type: AT.TODO_FILTER,
+		filter: filter
+	};
+};

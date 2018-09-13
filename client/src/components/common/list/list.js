@@ -1,35 +1,38 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import './list.scss';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cn from 'classnames';
 
-const List = ({items, maxWidth, onDelete, onChangeCheckbox}) => {
-	return (
-		<ListGroup style={ { maxWidth: `${ maxWidth }%`, margin: '0 auto' } }>
-			{
-				items.map( ac => {
-					const listData = cn({
-						todoComplete: ac.isChecked,
-					});
-					return (
-						<ListGroupItem className="list-items" key={ ac.id }>
-							<input
-								type="checkbox"
-								className="checkbox-input"
-								name={ac.name}
-								id={ac.id}
-								onChange={e => onChangeCheckbox(e)}
-							/>
-							<div className={listData} >{ac.name}</div>
-							<FontAwesomeIcon className="delete-icon" onClick={()  => onDelete(ac)} icon="times"/>
-						</ListGroupItem>
-					);
-				})
-			}
-		</ListGroup>
-	);
+class List extends PureComponent {
+	render() {
+		const {items, maxWidth, onDelete, onChangeCheckbox} = this.props;
+		return (
+			<ListGroup style={ { maxWidth: `${ maxWidth }%`, margin: '0 auto' } }>
+				{
+					items.map( ac => {
+						const listData = cn({
+							todoComplete: ac.isChecked,
+						});
+						return (
+							<ListGroupItem className="list-items" key={ ac.id }>
+								<input
+									type="checkbox"
+									className="checkbox-input"
+									name={ac.name}
+									id={ac.id}
+									onChange={e => onChangeCheckbox(e)}
+								/>
+								<div className={listData} >{ac.name}</div>
+								<FontAwesomeIcon className="delete-icon" onClick={()  => onDelete(ac)} icon="times"/>
+							</ListGroupItem>
+						);
+					})
+				}
+			</ListGroup>
+		);
+ 	}
 };
 
 List.propTypes = {
