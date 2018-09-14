@@ -1,0 +1,1 @@
+export const getFilteredProducts = state => state.products.items;

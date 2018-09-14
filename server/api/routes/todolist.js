@@ -20,7 +20,8 @@ router.post('/', (req, res, next) => {
     .then( result => {
        if( result !== null ) {
            res.status(201).json({
-               message: 'Item is already present in database'
+               message: 'Item is already present in database',
+               item: null
            })
        } else {
         const todolist = new TodoList({
@@ -29,11 +30,10 @@ router.post('/', (req, res, next) => {
         });
         todolist
         .save()
-        .then(data => {
-            console.log(data);
+        .then(result => {
             res.status(200).json({
-                message: " Post items successfully",
-                data: data
+                message: " Post item successfully",
+                item: result
             })
         })
         .catch( err => console.log(err))
@@ -43,7 +43,7 @@ router.post('/', (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
     TodoList
-    .remove({_id: req.params.id})
+    .deleteOne({_id: req.params.id})
     .exec()
     .then(data => {
         console.log(data);

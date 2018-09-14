@@ -21,12 +21,12 @@ class List extends PureComponent {
 							completedItem: ac.isCompleted
 						}); 
 						return (
-							<ListGroupItem className={listItemClasses} key={ ac.id }>
+							<ListGroupItem className={listItemClasses} key={ ac._id }>
 								<input
 									type="checkbox"
 									className="checkbox-input"
 									name={ac.name}
-									id={ac.id}
+									id={ac._id}
 									checked={ac.isCompleted}
 									onChange={e => onChangeCheckbox(e)}
 								/>
