@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import '../styles/app.scss';
 import store from '../store/store';
 
-import Routes from '../pages/routes';
+import Routes from '../routes/routes';
 import NavBar from './presentational/navbar/navbar';
 import Footer from './presentational/footer/footer';
 
