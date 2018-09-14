@@ -1,60 +1,73 @@
+@import '../../../styles/media-queries.scss';
+
 $nav_theme_color: lightseagreen;
 
-
-@mixin for-size($size) {
-    @if $size == phone-only {
-      @media (max-width: 767px) { @content; }
-    } @else if $size == tablet-portrait-up {
-      @media (min-width: 768px) { @content; }
-    } @else if $size == tablet-landscape-up {
-      @media (min-width: 900px) { @content; }
-    } @else if $size == desktop-up {
-      @media (min-width: 1200px) { @content; }
-    } @else if $size == big-desktop-up {
-      @media (min-width: 1800px) { @content; }
-    }
-}
-@mixin navButton() {
-    margin-left: 10px;
-    border: 1px solid $nav_theme_color;
-    border-radius: 4px;
-    padding: 2px 10px;
-    & a {
-        color: $nav_theme_color;
-    }
-    &:hover, &.active {
-        background: $nav_theme_color;
-        cursor: pointer;
-        & a {
-            color: white;
-            text-decoration: none;
-        }
-    }
+@mixin navButton($radius, $left, $borderWidth) {
+    margin-left: $left;
+    border-width: $borderWidth;
+    border-style: solid;
+    border-color: $nav_theme_color;
+    border-radius: $radius;
 }
 .mern-app {
+    & .navbar {
+        padding: 0;
+    }
+    & .brand-name {
+        text-decoration: none;
+        color: $nav_theme_color;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+    & .navbar-toggler {
+        margin: 7px;
+        padding: 2px 8px;
+    }
+    & .mern-center-nav, & .mern-right-nav  {
+        & li {
+            & a {
+                color: $nav_theme_color;
+                display: block;
+                width: 100%;
+                height: 100%;
+                padding: 2px 10px;
+            }
+            &:hover, &.active {
+                background: $nav_theme_color;
+                cursor: pointer;
+                & a {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    & .mern-center-nav {
+        & li {
+            @include navButton(0, 0, 0);
+        }  
+    } 
+    & .mern-right-nav {
+        & li {
+            @include navButton(4px, 10px, 1px);
+        }  
+    } 
     @include for-size(tablet-portrait-up){
         & .navbar {
             padding: 0 3rem;
             height: 50px;
         }
-        & .brand-name {
-            text-decoration: none;
-            color: $nav_theme_color;
-            font-size: 1.2rem;
-            font-weight: bold;
+        & .navbar-nav {
+            margin: 0 auto;
         }
-        & .mern-center-nav {
-            & .navbar-nav {
-                margin: 0 auto;
-            }
+        & .mern-center-nav  {
             & li {
-                @include navButton;
+                @include navButton(4px, 10px, 1px);
             }
         }
         & .mern-right-nav {
-            & li {
-                @include navButton;
-            }
-        } 
+            order: 2;
+        }
     }
 }
