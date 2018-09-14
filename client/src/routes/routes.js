@@ -15,7 +15,7 @@ const Routes = () => (
 			<Route path="/products" name={ Products } component={ Products } />
 			<Route path="/orders" name={ Orders } component={ Orders } />
 			<Route path="/about" name={ About } component={ About } />
-			<Redirect to="/about" />
+			<Redirect to="/products" />
 		</Switch>
 	</Jumbotron>
 );

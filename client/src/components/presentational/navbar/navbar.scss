@@ -1,20 +1,60 @@
+$nav_theme_color: lightseagreen;
+
+
+@mixin for-size($size) {
+    @if $size == phone-only {
+      @media (max-width: 767px) { @content; }
+    } @else if $size == tablet-portrait-up {
+      @media (min-width: 768px) { @content; }
+    } @else if $size == tablet-landscape-up {
+      @media (min-width: 900px) { @content; }
+    } @else if $size == desktop-up {
+      @media (min-width: 1200px) { @content; }
+    } @else if $size == big-desktop-up {
+      @media (min-width: 1800px) { @content; }
+    }
+}
+@mixin navButton() {
+    margin-left: 10px;
+    border: 1px solid $nav_theme_color;
+    border-radius: 4px;
+    padding: 2px 10px;
+    & a {
+        color: $nav_theme_color;
+    }
+    &:hover, &.active {
+        background: $nav_theme_color;
+        cursor: pointer;
+        & a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
 .mern-app {
-    & .navbar {
-        padding: 0 3rem;
-        height: 50px;
-    }
-    & .brand-name {
-        text-decoration: none;
-        color: gray;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    & .mern-nav {
-        & li {
-            margin-left: 10px;
-            & a:hover {
-                text-decoration: none;
+    @include for-size(tablet-portrait-up){
+        & .navbar {
+            padding: 0 3rem;
+            height: 50px;
+        }
+        & .brand-name {
+            text-decoration: none;
+            color: $nav_theme_color;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        & .mern-center-nav {
+            & .navbar-nav {
+                margin: 0 auto;
+            }
+            & li {
+                @include navButton;
             }
         }
+        & .mern-right-nav {
+            & li {
+                @include navButton;
+            }
+        } 
     }
 }

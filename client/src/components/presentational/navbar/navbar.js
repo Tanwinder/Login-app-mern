@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink as Link, withRouter } from 'react-router-dom';
 import {
 	Collapse,
 	Navbar,
@@ -28,31 +28,39 @@ class NavBar extends React.Component {
 		});
 	}
 	render() {
+		const { location } = this.props;
+		const activeNav = location.pathname;
 		return (
-			<div>
-				<Navbar color="light" light expand="md">
-					<Link className="brand-name" to="/">MERNAPP</Link>
-					<NavbarToggler onClick={ this.toggle } />
-					<Collapse isOpen={ this.state.isOpen } navbar>
-						<Nav className="mern-nav ml-auto" navbar>
-							<NavItem>
-								<Link to="/todolist">Todo</Link>
-							</NavItem>
-							<NavItem>
-								<Link to="/products">Products</Link>
-							</NavItem>
-							<NavItem>
-								<Link to="/orders">Orders</Link>
-							</NavItem>
-							<NavItem>
-								<Link to="/About">About</Link>
-							</NavItem>
-						</Nav>
-					</Collapse>
-				</Navbar>
-			</div>
+			<Navbar color="light" light expand="md">
+				<Link className="brand-name" to="/">MERNAPP</Link>
+				<NavbarToggler onClick={ this.toggle } />
+				<Collapse className="mern-center-nav" isOpen={ this.state.isOpen } navbar>
+					<Nav className="ml-auto" navbar>
+						<NavItem active={activeNav == '/todolist'}>
+							<Link to="/todolist">Todo</Link>
+						</NavItem>
+						<NavItem active={activeNav == '/products'}>
+							<Link to="/products">Products</Link>
+						</NavItem>
+						<NavItem active={activeNav == '/orders'}>
+							<Link to="/orders">Orders</Link>
+						</NavItem>
+						<NavItem active={activeNav == '/About'}>
+							<Link to="/About">About</Link>
+						</NavItem>
+					</Nav>
+				</Collapse>
+				<Nav className="mern-right-nav">
+					<NavItem active={activeNav == '/signin'}>
+						<Link to="/signin">Sign In</Link>
+					</NavItem>
+					<NavItem active={activeNav == '/signup'}>
+						<Link to="/signup">Sign Up</Link>
+					</NavItem>
+				</Nav>
+			</Navbar>
 		);
 	}
 }
 
-export default NavBar;
+export default withRouter(NavBar);
