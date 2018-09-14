@@ -33,6 +33,14 @@ class NavBar extends React.Component {
 		return (
 			<Navbar color="light" light expand="md">
 				<Link className="brand-name" to="/">MERNAPP</Link>
+				<Nav className="mern-right-nav">
+					<NavItem active={activeNav == '/signin'}>
+						<Link to="/signin">Sign In</Link>
+					</NavItem>
+					<NavItem active={activeNav == '/signup'}>
+						<Link to="/signup">Sign Up</Link>
+					</NavItem>
+				</Nav>
 				<NavbarToggler onClick={ this.toggle } />
 				<Collapse className="mern-center-nav" isOpen={ this.state.isOpen } navbar>
 					<Nav className="ml-auto" navbar>
@@ -50,14 +58,6 @@ class NavBar extends React.Component {
 						</NavItem>
 					</Nav>
 				</Collapse>
-				<Nav className="mern-right-nav">
-					<NavItem active={activeNav == '/signin'}>
-						<Link to="/signin">Sign In</Link>
-					</NavItem>
-					<NavItem active={activeNav == '/signup'}>
-						<Link to="/signup">Sign Up</Link>
-					</NavItem>
-				</Nav>
 			</Navbar>
 		);
 	}
