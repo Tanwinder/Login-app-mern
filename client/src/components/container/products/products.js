@@ -10,6 +10,8 @@ import {
 	CardTitle
 } from 'reactstrap';
 import * as selector from '../../../selectors/product-selector';
+import ImageCard from '../../common/ImageCard/ImageCard';
+import './products.scss';
 
 class Products extends Component {
 	constructor(props) {
@@ -17,14 +19,16 @@ class Products extends Component {
 	}
 
 	render() {
+		const arr = [ 1,2,3,4,5,6,7,8,9,10 ];
 		return (
-			<div>
+			<div className="products">
 				<Card>
 					<CardHeader>Products</CardHeader>
-					<CardBody>
-						<CardTitle>Special Title Treatment</CardTitle>
-						<CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-						<Button>Go somewhere</Button>
+					<CardBody className="outer-card-body">
+						{ arr.map( ac => <ImageCard 
+							key={ac} 
+							width={17}
+							imageSrc={'https://llandscapes-ee1.kxcdn.com/wp-content/uploads/2015/09/7.jpg'} />)}
 					</CardBody>
 				</Card>
 			</div>
