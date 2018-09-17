@@ -12,6 +12,7 @@ $nav_theme_color: lightseagreen;
 .mern-app {
     & .navbar {
         padding: 0;
+        min-height: 56px;
     }
     & .brand-name {
         text-decoration: none;
@@ -37,7 +38,7 @@ $nav_theme_color: lightseagreen;
                 background: $nav_theme_color;
                 cursor: pointer;
                 & a {
-                    color: white;
+                    color: gray;
                     text-decoration: none;
                 }
             }
@@ -56,7 +57,7 @@ $nav_theme_color: lightseagreen;
     @include for-size(tablet-portrait-up){
         & .navbar {
             padding: 0 3rem;
-            height: 50px;
+            height: 56px;
         }
         & .navbar-nav {
             margin: 0 auto;

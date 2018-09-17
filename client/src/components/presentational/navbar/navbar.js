@@ -31,7 +31,7 @@ class NavBar extends React.Component {
 		const { location } = this.props;
 		const activeNav = location.pathname;
 		return (
-			<Navbar color="light" light expand="md">
+			<Navbar color="dark" dark expand="md">
 				<Link className="brand-name" to="/">MERNAPP</Link>
 				<Nav className="mern-right-nav">
 					<NavItem active={activeNav == '/signin'}>
