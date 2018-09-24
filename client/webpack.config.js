@@ -36,9 +36,9 @@ module.exports = {
 		historyApiFallback: true,
 	},
 	plugins: [
-		new ExtractTextPlugin(
-			{ filename: 'style.css' }
-		),
+		new ExtractTextPlugin({ 
+			filename: 'style.css' 
+		}),
 		new HtmlWebPackPlugin({
 			template: './src/index.html',
 			filename: './index.html'
