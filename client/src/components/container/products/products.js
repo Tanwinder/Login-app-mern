@@ -28,7 +28,7 @@ class Products extends Component {
 						{ arr.map( (ac,i) => <ImageCard 
 							key={ac} 
 							width={17}
-							imageSrc={'../../../../public/images/product1.jpg'} />)}
+							imageSrc={`../../../../public/images/product${ i%2 === 0 ? 1 : 2 }.jpg`} />)}
 					</CardBody>
 				</Card>
 			</div>
