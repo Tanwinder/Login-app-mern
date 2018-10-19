@@ -25,10 +25,10 @@ class Products extends Component {
 				<Card>
 					<CardHeader>Products</CardHeader>
 					<CardBody className="outer-card-body">
-						{ arr.map( ac => <ImageCard 
+						{ arr.map( (ac,i) => <ImageCard 
 							key={ac} 
 							width={17}
-							imageSrc={'https://llandscapes-ee1.kxcdn.com/wp-content/uploads/2015/09/7.jpg'} />)}
+							imageSrc={'../../../../public/images/product1.jpg'} />)}
 					</CardBody>
 				</Card>
 			</div>
